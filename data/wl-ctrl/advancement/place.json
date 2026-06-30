@@ -1,0 +1,23 @@
+{
+    "criteria": {
+        "place": {
+            "trigger": "placed_block",
+            "conditions": {
+                "player": {
+                    "equipment": {
+                        "mainhand": {
+                            "predicates": {
+                                "custom_data": {
+                                    "wl-ctrl":{"matched": true}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "wl-ctrl:place"
+    }
+}

@@ -1,0 +1,1 @@
+kill @e[type=marker,tag=wl-ctrl.marker,tag=!wl-ctrl.source]

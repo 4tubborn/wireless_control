@@ -1,0 +1,2 @@
+execute if score #tick_inv wl-ctrl.rule matches 1 as @a[advancements={wl-ctrl:hold=false}] run function wl-ctrl:check/item/inv
+execute if score #tick_item_entity wl-ctrl.rule matches 1 run function wl-ctrl:check/item/item_entity

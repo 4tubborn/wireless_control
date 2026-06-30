@@ -1,0 +1,24 @@
+{
+    "values": [
+        "piston",
+        "sticky_piston",
+        "detector_rail",
+        "powered_rail",
+        "command_block",
+        "chain_command_block",
+        "repeating_command_block",
+        "bell",
+        "dispenser",
+        "dropper",
+        "#doors",
+        "#trapdoors",
+        "hopper",
+        "note_block",
+        "redstone_lamp",
+        "tnt",
+        "big_dripleaf",
+        "crafter",
+        "copper_bulb",
+        "target"
+    ]
+}

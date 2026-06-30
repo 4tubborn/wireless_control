@@ -1,0 +1,40 @@
+{
+    "condition": "all_of",
+    "terms": [
+        {
+            "condition": "entity_properties",
+            "entity": "this",
+            "predicate": {
+                "equipment": {
+                    "mainhand": {
+                        "items": "#wl-ctrl:power_sources"
+                    }
+                },
+                "type_specific": {
+                    "type": "player",
+                    "input": {
+                        "sneak": true
+                    }
+                }
+            }
+        },
+        {
+            "condition": "inverted",
+            "term":{
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "equipment": {
+                        "mainhand": {
+                            "predicates": {
+                                "custom_data": {
+                                    "wl-ctrl": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

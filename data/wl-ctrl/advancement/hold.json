@@ -1,0 +1,18 @@
+{
+    "criteria": {
+        "hold": {
+            "trigger": "tick",
+            "conditions": {
+                "player": [
+                    {
+                        "condition": "reference",
+                        "name": "wl-ctrl:hold"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "wl-ctrl:hold"
+    }
+}

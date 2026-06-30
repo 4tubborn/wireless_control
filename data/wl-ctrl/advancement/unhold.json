@@ -1,0 +1,18 @@
+{
+    "criteria": {
+        "un": {
+            "trigger": "tick",
+            "conditions": {
+                "player": [
+                    {
+                        "condition": "reference",
+                        "name": "wl-ctrl:unhold"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "wl-ctrl:unhold"
+    }
+}

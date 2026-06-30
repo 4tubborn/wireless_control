@@ -1,0 +1,7 @@
+{
+    "function": "set_components",
+    "components": {
+        "!attribute_modifiers": {},
+        "!consumable": {}
+    }
+}

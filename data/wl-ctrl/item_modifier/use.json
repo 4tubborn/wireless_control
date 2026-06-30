@@ -1,0 +1,37 @@
+{
+    "function": "sequence",
+    "functions": [
+        {
+            "function": "copy_custom_data",
+            "ops": [
+                {
+                    "op": "replace",
+                    "source": "id",
+                    "target": "wl-ctrl.id"
+                }
+            ],
+            "source": {
+                "type": "storage",
+                "source": "wl-ctrl"
+            }
+        },
+        {
+            "function": "set_custom_data",
+            "tag": {
+                "wl-ctrl":{"matched": true}
+            }
+        },
+        {
+            "function": "set_lore",
+            "lore": [{"translate":"wl-ctrl.item_lore.linked","fallback": "Linked","italic": false,"color": "gray"}],
+            "mode": "insert",
+            "offset": 0
+        },
+        {
+            "function": "set_components",
+            "components": {
+                "enchantment_glint_override": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "criteria": {
+        "1": {
+            "trigger": "tick",
+            "conditions": {
+                "player": {
+                    "type_specific": {
+                        "type": "player",
+                        "input": {
+                            "sneak": true
+                        }
+                    },
+                    "equipment": {
+                        "offhand": {
+                            "predicates": {
+                                "custom_data": {
+                                    "wl-ctrl": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "wl-ctrl:unlink"
+    }
+}

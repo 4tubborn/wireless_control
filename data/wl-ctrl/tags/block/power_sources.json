@@ -1,0 +1,23 @@
+{
+    "values": [
+        "redstone_block",
+        "#buttons",
+        "lever",
+        "#wooden_pressure_plates",
+        "polished_blackstone_pressure_plate",
+        "stone_pressure_plate",
+        "light_weighted_pressure_plate",
+        "heavy_weighted_pressure_plate",
+        "daylight_detector",
+        "detector_rail",
+        "trapped_chest",
+        "tripwire_hook",
+        "jukebox",
+        "observer",
+        "lectern",
+        "target",
+        "lightning_rod",
+        "sculk_sensor",
+        "calibrated_sculk_sensor"
+    ]
+}

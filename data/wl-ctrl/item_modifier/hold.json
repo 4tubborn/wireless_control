@@ -1,0 +1,21 @@
+{
+    "function": "set_components",
+    "components": {
+        "attribute_modifiers": [
+            {
+                "id": "wl-ctrl:hold",
+                "type": "block_interaction_range",
+                "operation": "add_multiplied_base",
+                "amount": -1
+            }
+        ],
+        "consumable": {
+            "animation": "block",
+            "consume_seconds": 99999999,
+            "has_consume_particles": false,
+            "sound": {
+                "sound_id": ""
+            }
+        }
+    }
+}
