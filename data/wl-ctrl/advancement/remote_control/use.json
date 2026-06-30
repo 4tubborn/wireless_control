@@ -1,0 +1,18 @@
+{
+    "criteria": {
+        "use": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "items": "recovery_compass",
+                    "predicates": {
+                        "custom_data": {"wid":"wl-ctrl:remote_control"}
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "wl-ctrl:remote_control/use"
+    }
+}

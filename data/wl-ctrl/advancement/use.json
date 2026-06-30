@@ -3,19 +3,12 @@
         "use": {
             "trigger": "using_item",
             "conditions": {
-                "player": {
-                    "equipment": {
-                        "mainhand": {
-                            "items": "#wl-ctrl:power_sources"
-                        }
-                    },
-                    "type_specific": {
-                        "type": "player",
-                        "input": {
-                            "sneak": true
-                        }
+                "player": [
+                    {
+                        "condition": "reference",
+                        "name": "wl-ctrl:general"
                     }
-                }
+                ]
             }
         }
     },

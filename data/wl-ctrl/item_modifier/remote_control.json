@@ -1,0 +1,17 @@
+{
+    "function": "set_components",
+    "components": {
+        "rarity": "common",
+        "custom_data": {"wid":"wl-ctrl:remote_control"},
+        "item_name": {"translate": "item.wl-ctrl.remote_control","fallback": "Remote Control"},
+        "consumable": {
+            "animation": "block",
+            "consume_seconds": 0,
+            "has_consume_particles": false,
+            "sound": {
+                "sound_id": ""
+            }
+        },
+        "use_cooldown": {"seconds": 0.1}
+    }
+}

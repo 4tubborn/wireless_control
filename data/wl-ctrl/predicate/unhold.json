@@ -1,20 +1,7 @@
 {
     "condition": "inverted",
     "term": {
-        "condition": "entity_properties",
-        "entity": "this",
-        "predicate": {
-            "equipment": {
-                "mainhand": {
-                    "items": "#wl-ctrl:power_sources"
-                }
-            },
-            "type_specific": {
-                "type": "player",
-                "input": {
-                    "sneak": true
-                }
-            }
-        }
+        "condition": "reference",
+        "name": "wl-ctrl:general"
     }
 }

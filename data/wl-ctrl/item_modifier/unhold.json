@@ -1,7 +1,36 @@
 {
-    "function": "set_components",
-    "components": {
-        "!attribute_modifiers": {},
-        "!consumable": {}
-    }
+    "function": "sequence",
+    "functions": [
+        {
+            "function": "set_components",
+            "components": {
+                "!attribute_modifiers": {}
+            }
+        },
+        {
+            "function": "filtered",
+            "item_filter": {
+                "items": "#wl-ctrl:power_sources"
+            },
+            "on_pass": {
+                "function": "set_components",
+                "components": {
+                    "!consumable": {}
+                }
+            },
+            "on_fail": {
+                "function": "set_components",
+                "components": {
+                    "consumable": {
+                        "animation": "block",
+                        "consume_seconds": 0,
+                        "has_consume_particles": false,
+                        "sound": {
+                            "sound_id": ""
+                        }
+                    }
+                }
+            }
+        }
+    ]
 }

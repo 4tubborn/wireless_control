@@ -1,6 +1,6 @@
 {
     "values": [
-        "wl-ctrl:source/tick",
+        "wl-ctrl:_tick_",
         "wl-ctrl:check/marker/remove",
         "wl-ctrl:check/item/"
     ]

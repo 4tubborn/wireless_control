@@ -1,0 +1,40 @@
+{
+    "condition": "all_of",
+    "terms": [
+        {
+            "condition": "any_of",
+            "terms": [
+                {
+                    "condition": "entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                        "equipment": {
+                            "mainhand": { "items": "#wl-ctrl:power_sources"}
+                        }
+                    }
+                },
+                {
+                    "condition": "entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                        "equipment": {
+                            "mainhand": { "predicates": {"custom_data": {"wid":"wl-ctrl:remote_control"}}}
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "condition": "entity_properties",
+            "entity": "this",
+            "predicate": {
+                "type_specific": {
+                    "type": "player",
+                    "input": {
+                        "sneak": true
+                    }
+                }
+            }
+        }
+    ]
+}

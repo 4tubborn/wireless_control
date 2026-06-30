@@ -12,4 +12,5 @@ title @s actionbar {"translate":"wl-ctrl.actionbar.linked","fallback": "Linked t
 
 summon marker ~ ~ ~ {Tags:["wl-ctrl.marker","wl-ctrl.init"]}
 scoreboard players operation @n[type=marker,distance=..0.1,tag=wl-ctrl.init] wl-ctrl.id = #glob_id wl-ctrl.id
+execute if items entity @s weapon.mainhand recovery_compass[custom_data~{wid:"wl-ctrl:remote_control"}] run tag @n[type=marker,distance=..0.1,tag=wl-ctrl.init] add wl-ctrl.tick
 tag @n[type=marker,tag=!wl-ctrl.source,tag=wl-ctrl.init] remove wl-ctrl.init

@@ -8,10 +8,8 @@
                     "name": "recovery_compass",
                     "functions": [
                         {
-                            "function": "set_components",
-                            "components": {
-                                "rarity": "common"
-                            }
+                            "function": "reference",
+                            "name": "wl-ctrl:remote_control"
                         }
                     ]
                 }

@@ -1,4 +1,6 @@
 scoreboard objectives add wl-ctrl.id dummy
+
+scoreboard players set #2 wl-ctrl.id 2
 #记录上一tick与当前tick是否激活，用于下降沿(unpower)
 scoreboard objectives add wl-ctrl.las_bit dummy
 scoreboard objectives add wl-ctrl.cur_bit dummy

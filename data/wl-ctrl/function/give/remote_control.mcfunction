@@ -1,0 +1,1 @@
+loot give @s loot wl-ctrl:remote_control
