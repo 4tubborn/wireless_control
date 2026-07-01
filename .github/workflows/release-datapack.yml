@@ -58,14 +58,13 @@ jobs:
             --arg vn "${{ github.ref_name }}" \
             --arg vt "Wireless Control ${{ github.ref_name }}" \
             --arg cl "${{ steps.get_msg.outputs.COMMIT_MSG }}" \
-            --arg jv1 "1.21.5" --arg jv2 "1.21.11" \
             '{
               project_id: $pid,
               version_number: $vn,
               version_title: $vt,
               changelog: $cl,
               dependencies: [],
-              game_versions: [$jv1, $jv2],
+              game_versions: ["1.21.5", "1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10", "1.21.10"],
               version_type: "release",
               loaders: ["datapack"],
               featured: false,
