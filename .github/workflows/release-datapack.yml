@@ -9,6 +9,10 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+
+    permissions:
+        contents: write
+
     steps:
       # 1. 拉取仓库代码
       - name: Checkout code
