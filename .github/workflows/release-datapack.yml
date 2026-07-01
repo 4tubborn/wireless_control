@@ -14,6 +14,7 @@ jobs:
         contents: write
 
     steps:
+      
       # 1. 拉取仓库代码
       - name: Checkout code
         uses: actions/checkout@v4
@@ -49,22 +50,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 4. 同步版本到 Modrinth
-      - name: Upload to Modrinth & Sync Homepage
-        uses: modrinth/minotaur@v3
-        with:
-          token: ${{ secrets.MODRINTH_TOKEN }}
-          project-id: '8HFrUnlq' 
-          version-number: ${{ github.ref_name }}
-          file: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
-          game-versions: |
-            1.21.5
-            1.21.11
-          loaders: |
-            datapack
-          # 传入更新日志
-          version-body: |                        
-            ${{ steps.get_msg.outputs.COMMIT_MSG }}
-            
-          # ⚡【新武器】官方 v3 原生支持直接指定项目的 README。只要加这一行，项目主页描述自动刷新！
-          project-body-file: './README.md'
+      - name: Direct Upload to Modrinth via API
+        run: |
+          # 构造 Modrinth API 所需的特定 JSON 结构
+          cat << 'EOF' > data.json
+          {
+            "project_id": "8HFrUnlq",
+            "version_number": "${{ github.ref_name }}",
+            "changelog": "${{ steps.get_msg.outputs.COMMIT_MSG }}",
+            "dependencies": [],
+            "game_versions": ["1.21.5", "1.21.11"],
+            "version_type": "release",
+            "loaders": ["datapack"],
+            "featured": false,
+            "file_parts": ["file"]
+          }
+          EOF
+
+          # 用 cURL 直接发送 multipart/form-data 请求
+          curl -X POST https://api.modrinth.com/v2/version \
+            -H "Authorization: ${{ secrets.MODRINTH_TOKEN }}" \
+            -F "data=$(cat data.json)" \
+            -F "file=@${{ github.event.repository.name }}-${{ github.ref_name }}.zip"
