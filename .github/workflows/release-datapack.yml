@@ -50,39 +50,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 4. 同步版本到 Modrinth
-      - name: Upload to Modrinth
-        uses: modrinth/minotaur@v2
+      - name: Upload to Modrinth & Sync Homepage
+        uses: modrinth/minotaur@v3
         with:
-          # 必填：你的 Modrinth 个人 Token（刚才配在 GitHub Secret 里的）
           token: ${{ secrets.MODRINTH_TOKEN }}
-          
-          # 必填：你的 Modrinth 项目 ID（在你的 Modrinth 项目页面的左侧侧边栏可以找到，一串乱码字母）
           project-id: '8HFrUnlq' 
-          
-          # 必填：当前发布的版本号（自动获取你打的 Tag 名，比如 v0.2.0）
           version-number: ${{ github.ref_name }}
-          
-          # 必填：要上传的压缩包路径
           file: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
-          
-          # 必填：支持的游戏版本
           game-versions: |
             1.21.5
             1.21.11
-            
-          # 必填：支持的加载器（数据包选 datapack 即可）
           loaders: |
             datapack
-            
-          # 可选：本次更新的日志（自动抓取你打 Tag 时写的说明，或者跟 GitHub Release 保持一致）
-          #version-body: ${{ steps.release_notes.outputs.body }}
+          # 传入更新日志
           version-body: |                        
             ${{ steps.get_msg.outputs.COMMIT_MSG }}
-        
-      # 5. 同步readme到modrinth项目描述
-      - name: sync README to Modrinth
-        uses: jasonray/modrinth-homepage-sync-action@v1 # 举例，社区常用同步工具
-        with:
-          token: ${{ secrets.MODRINTH_TOKEN }}
-          project-id: '8HFrUnlq'
-          markdown-file: './README.md' # 读取你仓库根目录的 README.md
+            
+          # ⚡【新武器】官方 v3 原生支持直接指定项目的 README。只要加这一行，项目主页描述自动刷新！
+          project-body-file: './README.md'
