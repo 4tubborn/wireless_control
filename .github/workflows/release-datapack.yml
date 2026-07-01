@@ -52,15 +52,17 @@ jobs:
 
       - name: Direct Upload to Modrinth via API
         run: |
-          # 构造 Modrinth API 所需的特定 JSON 结构
+          # 使用 jq 动态安全地构建 JSON，新增了 version_title 字段
           jq -n \
             --arg pid "8HFrUnlq" \
             --arg vn "${{ github.ref_name }}" \
+            --arg vt "Wireless Control ${{ github.ref_name }}" \
             --arg cl "${{ steps.get_msg.outputs.COMMIT_MSG }}" \
             --arg jv1 "1.21.5" --arg jv2 "1.21.11" \
             '{
               project_id: $pid,
               version_number: $vn,
+              version_title: $vt,
               changelog: $cl,
               dependencies: [],
               game_versions: [$jv1, $jv2],
