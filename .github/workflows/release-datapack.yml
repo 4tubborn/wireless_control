@@ -1,0 +1,36 @@
+name: 打包并发布数据包
+
+# 触发条件：当你推送（push）带有版本号标签（如 v1.0.0）时触发
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取仓库代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 将数据包文件夹打包成 .zip
+      # 注意：这里需要根据你的仓库结构调整路径。
+      # 如果你的 data 文件夹和 pack.mcmeta 就在仓库根目录下：
+      - name: Zip Datapack Artifact
+        run: |
+          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip data pack.mcmeta LICENSE README.md
+        # 如果你的数据包在子目录里（例如名叫 wireless-control）：
+        # run: |
+        #   cd src/wireless-control && zip -r ../../wireless-control-${{ github.ref_name }}.zip ./*
+
+      # 3. 自动创建 GitHub Release 并将打包好的 zip 挂载上去
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
