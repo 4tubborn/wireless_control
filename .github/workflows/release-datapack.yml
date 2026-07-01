@@ -17,13 +17,23 @@ jobs:
       # 1. 拉取仓库代码
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Latest Commit Message
+        id: get_msg
+        run: |
+          # 抓取最近一次提交的完整内容，并处理换行符，写入全局环境变量
+          echo "COMMIT_MSG<<EOF" >> $GITHUB_ENV
+          git log -1 --pretty=%B >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # 2. 将数据包文件夹打包成 .zip
       # 注意：这里需要根据你的仓库结构调整路径。
       # 如果你的 data 文件夹和 pack.mcmeta 就在仓库根目录下：
       - name: Zip Datapack Artifact
         run: |
-          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip data pack.mcmeta LICENSE README.md
+          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip data pack.mcmeta icon.png LICENSE README.md
         # 如果你的数据包在子目录里（例如名叫 wireless-control）：
         # run: |
         #   cd src/wireless-control && zip -r ../../wireless-control-${{ github.ref_name }}.zip ./*
@@ -38,3 +48,41 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 4. 同步版本到 Modrinth
+      - name: Upload to Modrinth
+        uses: modrinth/minotaur@v2
+        with:
+          # 必填：你的 Modrinth 个人 Token（刚才配在 GitHub Secret 里的）
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          
+          # 必填：你的 Modrinth 项目 ID（在你的 Modrinth 项目页面的左侧侧边栏可以找到，一串乱码字母）
+          project-id: '8HFrUnlq' 
+          
+          # 必填：当前发布的版本号（自动获取你打的 Tag 名，比如 v0.2.0）
+          version-number: ${{ github.ref_name }}
+          
+          # 必填：要上传的压缩包路径
+          file: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
+          
+          # 必填：支持的游戏版本
+          game-versions: |
+            1.21.5
+            1.21.11
+            
+          # 必填：支持的加载器（数据包选 datapack 即可）
+          loaders: |
+            datapack
+            
+          # 可选：本次更新的日志（自动抓取你打 Tag 时写的说明，或者跟 GitHub Release 保持一致）
+          #version-body: ${{ steps.release_notes.outputs.body }}
+          version-body: |                        
+            ${{ steps.get_msg.outputs.COMMIT_MSG }}
+        
+      # 5. 同步readme到modrinth项目描述
+      - name: sync README to Modrinth
+        uses: jasonray/modrinth-homepage-sync-action@v1 # 举例，社区常用同步工具
+        with:
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          project-id: '8HFrUnlq'
+          markdown-file: './README.md' # 读取你仓库根目录的 README.md
