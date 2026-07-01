@@ -7,7 +7,7 @@ scoreboard players add @s wl-ctrl.id 1
 scoreboard players operation #tmp_p wl-ctrl.id = @s wl-ctrl.id
 scoreboard players operation #tmp_p wl-ctrl.id %= #2 wl-ctrl.id
 
-tellraw @a ["score: ",{score:{name:"#tmp_p",objective:"wl-ctrl.id"}}]
+#tellraw @a ["score: ",{score:{name:"#tmp_p",objective:"wl-ctrl.id"}}]
 
 #scoreboard players operation @s wl-ctrl.las_bit = @s wl-ctrl.cur_bit
 
