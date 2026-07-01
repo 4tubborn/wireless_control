@@ -1,7 +1,7 @@
 # Wireless Control
 
 ## Features
-* Link multiple redstone consumers (e.g. powered rails and redstone lambs) to single redstone power sources, and you can use the redstone power source to control linked redstone consumers remotely!
+* Link multiple redstone consumers (e.g. powered rails and redstone lamps) to single redstone power sources, and you can use the redstone power source to control linked redstone consumers remotely!
 * Use multiple linked redstone power sources to control single redstone consumers!
 
 ## Usage

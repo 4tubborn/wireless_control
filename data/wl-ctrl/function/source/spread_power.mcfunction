@@ -1,4 +1,4 @@
-scoreboard players set @s wl-ctrl.cur_bit 1
+scoreboard players set @s[type=marker] wl-ctrl.cur_bit 1
 
 #say aaaaaa
 

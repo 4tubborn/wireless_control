@@ -9,9 +9,7 @@ scoreboard players operation #tmp_p wl-ctrl.id %= #2 wl-ctrl.id
 
 tellraw @a ["score: ",{score:{name:"#tmp_p",objective:"wl-ctrl.id"}}]
 
-scoreboard players operation @s wl-ctrl.las_bit = @s wl-ctrl.cur_bit
+#scoreboard players operation @s wl-ctrl.las_bit = @s wl-ctrl.cur_bit
 
-execute if score #tmp_p wl-ctrl.id matches 1 run function wl-ctrl:source/spread_power
-execute if score #tmp_p wl-ctrl.id matches 0 run function wl-ctrl:source/spread_unpower
-
-schedule function wl-ctrl:remote_control/check 1t replace
+execute if score #tmp_p wl-ctrl.id matches 1 run return run function wl-ctrl:source/spread_power
+function wl-ctrl:source/spread_unpower

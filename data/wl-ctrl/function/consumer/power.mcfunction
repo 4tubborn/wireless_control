@@ -1,3 +1,6 @@
+#这个score实际只有带wl-ctrl.tick的tag的实体会用到
+scoreboard players set @s wl-ctrl.cur_bit 1
+
 function #bs.block:get_block
 function #bs.block:replace_properties {properties:[{name:"powered",value:"true"}]}
 function #bs.block:replace_properties {properties:[{name:"power",value:"15"}]}
