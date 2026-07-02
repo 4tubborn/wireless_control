@@ -1,0 +1,8 @@
+{
+    "load.wl-ctrl.des": "The Wireless Control Datapack loaded successfully! You can run %s to config.",
+    "load.wl-ctrl.config": "[this command]",
+    "actionbar.wl-ctrl.linked": "Linked to the block",
+    "lore.wl-ctrl.linked": "Linked",
+    "actionbar.wl-ctrl.unlinked": "Unlinked items",
+    "item.wl-ctrl.remote_control": "Remote Control"
+}

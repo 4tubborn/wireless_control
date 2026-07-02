@@ -1,0 +1,9 @@
+{
+    "pack": {
+        "description": "Wireless Control Resourcepack",
+        "supported_formats": [55,75],
+        "pack_format": 75,
+        "min_format": 55,
+        "max_format": 75
+    }
+}

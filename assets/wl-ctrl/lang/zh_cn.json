@@ -1,0 +1,8 @@
+{
+    "load.wl-ctrl.des": "无线控制数据包加载成功！你可以运行%s进行配置。",
+    "load.wl-ctrl.config": "[此命令]",
+    "actionbar.wl-ctrl.linked": "连接到方块",
+    "lore.wl-ctrl.linked": "已连接",
+    "actionbar.wl-ctrl.unlinked": "取消连接",
+    "item.wl-ctrl.remote_control": "遥控器"
+}
