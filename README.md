@@ -14,3 +14,8 @@
 
 ### Remove Links
 * Hold linked redstone consumers or remote controls in off hand while sneaking.
+
+## Dependencies
+
+* Required: [Bookshelf View](https://modrinth.com/project/rkt9Av0Z)
+* Required: [Bookshelf Block](https://modrinth.com/project/JTQNFXZm)
