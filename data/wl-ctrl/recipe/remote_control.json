@@ -1,16 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "redstone",
-  "pattern": [
-    "a",
-    "e",
-    "r"
+  "ingredients": [
+    "amethyst_shard", "ender_pearl", "redstone"
   ],
-  "key": {
-    "a": "amethyst_shard",
-    "e": "ender_pearl",
-    "r": "redstone"
-  },
   "result": {
     "id": "recovery_compass",
     "components": {

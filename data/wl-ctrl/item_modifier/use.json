@@ -23,7 +23,7 @@
         },
         {
             "function": "set_lore",
-            "lore": [{"translate":"wl-ctrl.item_lore.linked","fallback": "Linked","italic": false,"color": "gray"}],
+            "lore": [{"translate":"lore.wl-ctrl.linked","fallback": "Linked","italic": false,"color": "gray"}],
             "mode": "insert",
             "offset": 0
         },

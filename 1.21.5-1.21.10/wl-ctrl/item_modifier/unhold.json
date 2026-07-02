@@ -7,13 +7,14 @@
             }
         } 
     },
-    "on_pass": {
+    "modifier": {
         "function": "sequence",
         "functions": [
             {
                 "function": "set_components",
                 "components": {
-                    "!attribute_modifiers": {}
+                    "!attribute_modifiers": {},
+                    "!consumable": {}
                 }
             },
             {
@@ -21,13 +22,7 @@
                 "item_filter": {
                     "items": "#wl-ctrl:power_sources"
                 },
-                "on_pass": {
-                    "function": "set_components",
-                    "components": {
-                        "!consumable": {}
-                    }
-                },
-                "on_fail": {
+                "modifier": {
                     "function": "set_components",
                     "components": {
                         "consumable": {

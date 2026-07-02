@@ -20,7 +20,7 @@
             "item_filter": {
                 "items": "recovery_compass"
             },
-            "on_pass": {
+            "modifier": {
                 "function":"set_custom_data","tag":{"wid":"wl-ctrl:remote_control"}
             }
         }

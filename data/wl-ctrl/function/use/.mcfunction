@@ -8,7 +8,7 @@ execute as @n[type=marker,tag=wl-ctrl.marker,distance=..0.4] if score @s wl-ctrl
 function wl-ctrl:use/render
 playsound minecraft:entity.experience_orb.pickup
 execute unless items entity @s weapon.mainhand *[custom_data~{wl-ctrl:{}}] run function wl-ctrl:use/item
-title @s actionbar {"translate":"wl-ctrl.actionbar.linked","fallback": "Linked to the block"}
+title @s actionbar {"translate":"actionbar.wl-ctrl.linked","fallback":"Linked to the block"}
 
 summon marker ~ ~ ~ {Tags:["wl-ctrl.marker","wl-ctrl.init"]}
 scoreboard players operation @n[type=marker,distance=..0.1,tag=wl-ctrl.init] wl-ctrl.id = #glob_id wl-ctrl.id

@@ -34,7 +34,7 @@ jobs:
       # 如果你的 data 文件夹和 pack.mcmeta 就在仓库根目录下：
       - name: Zip Datapack Artifact
         run: |
-          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip data pack.mcmeta icon.png LICENSE README.md
+          zip -r ${{ github.event.repository.name }}-${{ github.ref_name }}.zip data pack.mcmeta icon.png LICENSE README.md 1.21.5-1.21.10
         # 如果你的数据包在子目录里（例如名叫 wireless-control）：
         # run: |
         #   cd src/wireless-control && zip -r ../../wireless-control-${{ github.ref_name }}.zip ./*
