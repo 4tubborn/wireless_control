@@ -1,10 +1,10 @@
 {
   "pack": {
     "description": "Wireless Control",
-    "min_format": 94,
+    "min_format": 71,
     "max_format": 114514,
     "pack_format": 114514,
-    "supported_formats": [94,114514]
+    "supported_formats": [71,114514]
   },
   "overlays": {
     "entries": [
